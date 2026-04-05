@@ -61,6 +61,11 @@ const Calculator = (() => {
     const qty = Math.max(0, parseFloat(qtyEl.value) || 0);
     const total = Math.round(material.rate * qty);
 
+    // Eco Impact Hook
+    if (window.updateEcoStats) {
+      window.updateEcoStats(qty);
+    }
+
     // Animate result update
     animateValue(resultEl, total);
   }

@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/reviews.css">
+<link rel="stylesheet" href="assets/css/creative.css">
 <link rel="manifest" href="site.webmanifest">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Scrapwala Hyderabad","image":"https://scrapwala.in/assets/images/og/home.jpg","url":"https://scrapwala.in","telephone":"+919392901664","email":"scrapwala95@gmail.com","address":{"@type":"PostalAddress","streetAddress":"1-4-27/71/2, Padmashali Colony, Indira Nagar, Kavadiguda","addressLocality":"Hyderabad","addressRegion":"Telangana","postalCode":"500080","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":17.4065,"longitude":78.4772},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"20:00"},"priceRange":"$$","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"400","bestRating":"5"},"areaServed":{"@type":"City","name":"Hyderabad"},"description":"Hyderabad's most trusted scrap collection service. Best prices for iron, copper, aluminium, paper, e-waste. Free doorstep pickup and instant payment."}
@@ -31,6 +32,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much do you pay for iron scrap in Hyderabad?","acceptedAnswer":{"@type":"Answer","text":"We pay ₹24–28 per kg for iron and steel scrap, updated daily based on Hyderabad market rates. Final amount is confirmed after certified digital weighing at your doorstep."}},{"@type":"Question","name":"Do you offer free pickup for scrap?","acceptedAnswer":{"@type":"Answer","text":"Yes, all pickups are completely free. We come to your door, collect, weigh and pay — no charges whatsoever."}},{"@type":"Question","name":"How quickly can you come for a pickup?","acceptedAnswer":{"@type":"Answer","text":"We offer same-day pickup in most parts of Hyderabad. Call or WhatsApp +91 93929 01664 and we aim to arrive within 2–4 hours."}},{"@type":"Question","name":"What scrap materials do you buy?","acceptedAnswer":{"@type":"Answer","text":"We buy iron, steel, copper, aluminium, brass, paper, cardboard, plastic, e-waste, batteries, old appliances, vehicles and more."}},{"@type":"Question","name":"How do you pay for scrap?","acceptedAnswer":{"@type":"Answer","text":"We pay instantly via cash or any UPI app (PhonePe, GPay, Paytm) the moment weighing is complete. No waiting or delays."}}]}
 </script>
+<div class="trust-orbs"></div>
 </head>
 <body>
 
@@ -115,6 +117,25 @@
 <div class="hero__divider"></div>
 <div class="hero__stat"><div class="hero__stat-num">4.9 / 5</div><div class="hero__stat-label">Rated on Google</div></div>
 </div>
+
+<!-- SCRAP EXCHANGE TERMINAL -->
+<div class="hero-terminal reveal reveal-delay-4">
+  <div class="terminal-card">
+    <div class="terminal-header"><span class="terminal-label">Iron / Steel</span><span class="terminal-trend trend--up">+2.4%</span></div>
+    <div class="terminal-value">₹24.50</div>
+    <div class="terminal-chart" id="chart-iron"></div>
+  </div>
+  <div class="terminal-card">
+    <div class="terminal-header"><span class="terminal-label">Copper</span><span class="terminal-trend trend--up">+1.8%</span></div>
+    <div class="terminal-value">₹465.00</div>
+    <div class="terminal-chart" id="chart-copper"></div>
+  </div>
+  <div class="terminal-card">
+    <div class="terminal-header"><span class="terminal-label">Aluminium</span><span class="terminal-trend trend--down">-0.5%</span></div>
+    <div class="terminal-value">₹102.00</div>
+    <div class="terminal-chart" id="chart-aluminium"></div>
+  </div>
+</div>
 </div>
 </section>
 
@@ -136,6 +157,23 @@
 
 <!-- TICKER -->
 <div class="ticker" id="prices">
+<!-- BEFORE/AFTER SECTION -->
+<section style="background:var(--black); padding: var(--space-24) 0;">
+  <div class="container">
+    <div class="section-label">Interactive Experience</div>
+    <div class="section-title" style="color:white">Clutter-to-Cash.<br>See the difference.</div>
+    <div class="ba-container reveal">
+      <div class="ba-label ba-label--before">The Clutter</div>
+      <div class="ba-label ba-label--after">The Cash</div>
+      <img src="assets/images/clean.png" class="ba-image" alt="Organized clean home">
+      <div class="ba-overlay">
+        <img src="assets/images/hero-bg.png" alt="Messy garage scrap">
+      </div>
+      <div class="ba-handle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/></svg></div>
+      <div class="ba-counter">Value Generated: <span id="ba-counter-val">₹0</span></div>
+    </div>
+  </div>
+</section>
 <div class="ticker__inner">
 <div class="ticker__label"><span>TODAY'S RATES</span></div>
 <div class="ticker__track">
@@ -218,7 +256,25 @@
 <div class="calc-grid">
 <div class="calc-box reveal">
 <div class="calc-box__title">Scrap Price Calculator</div>
-<div class="form-group">
+<!-- ECO METRICS -->
+<div class="eco-hero-stats">
+  <div class="eco-stat">
+    <div class="eco-stat__icon">🌳</div>
+    <span class="eco-stat__val" id="eco-trees">0</span>
+    <span class="eco-stat__label">Trees Protected</span>
+  </div>
+  <div class="eco-stat">
+    <div class="eco-stat__icon">⛽</div>
+    <span class="eco-stat__val" id="eco-oil">0L</span>
+    <span class="eco-stat__label">Oil Saved</span>
+  </div>
+  <div class="eco-stat">
+    <div class="eco-stat__icon">☁️</div>
+    <span class="eco-stat__val" id="eco-co2">0kg</span>
+    <span class="eco-stat__label">CO2 Offset</span>
+  </div>
+</div>
+<div class="form-group" style="margin-top:var(--space-6)">
 <label class="form-label" for="calc-material">Material type</label>
 <select class="form-control" id="calc-material">
 <option value="iron-steel">Iron / Steel — ₹24–28/kg</option>
@@ -433,6 +489,30 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
       <div class="g-text">"Sold old newspapers, a broken washing machine, and AC unit. The daily rates are exactly what they mention on the website. No haggling. Very polite staff."</div>
+    </div>
+  </div>
+</section>
+
+<!-- HYDERABAD PULSE MAP -->
+<section class="pulse-section" style="background:#0d0d0d; overflow:hidden;">
+  <div class="container">
+    <div class="pulse-map-container reveal">
+      <div style="position:relative;">
+        <div id="map-toast" style="position:absolute; top:20px; left:20px; background:var(--green-accent); color:var(--black); padding:10px 20px; border-radius:100px; font-weight:800; font-size:12px; opacity:0; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:10; pointer-events:none;">New pickup scheduled!</div>
+        <svg class="pulse-map-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150,50 L350,50 L450,150 L450,350 L350,450 L150,450 L50,350 L50,150 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" /> <!-- Abstract HYD outline -->
+          <circle cx="250" cy="250" r="5" fill="var(--green-accent)" /> <!-- City Center -->
+        </svg>
+      </div>
+      <div>
+        <div class="section-label">Live Activity</div>
+        <h2 style="color:white; font-family:var(--font-display); font-size:var(--text-4xl); margin-bottom:var(--space-6);">Join the movement.</h2>
+        <p style="color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:var(--space-8);">Every minute, families in Hyderabad are reclaiming their space and helping the environment. Our team is currently active in 32+ neighborhoods.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6);">
+          <div><div style="font-size:24px; font-weight:800; color:white;">1,240+</div><div style="font-size:11px; text-transform:uppercase; color:var(--green-accent);">Kg Collected Today</div></div>
+          <div><div style="font-size:24px; font-weight:800; color:white;">48</div><div style="font-size:11px; text-transform:uppercase; color:var(--green-accent);">Pickups Done Today</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -692,5 +772,6 @@
 <script src="assets/js/form.js" defer></script>
 <script src="assets/js/animations.js" defer></script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/creative.js" defer></script>
 </body>
 </html>
