@@ -56,39 +56,43 @@ function initBaSlider() {
     container.addEventListener('touchmove', (e) => move(e.touches[0]));
 }
 
-/* 3. HYDERABAD PULSE MAP */
+/* 3. SIMPLIFIED PULSE HUB (Live Activity) */
 function initPulseMap() {
-    const map = document.querySelector('.pulse-map-svg');
-    if (!map) return;
+    const hub = document.querySelector('.pulse-hub__visual');
+    if (!hub) return;
 
     const areas = [
-        {x: 120, y: 150, name: 'Gachibowli'},
-        {x: 250, y: 180, name: 'Madhapur'},
-        {x: 320, y: 220, name: 'Secunderabad'},
-        {x: 410, y: 310, name: 'Banjara Hills'},
-        {x: 180, y: 380, name: 'Kavadiguda'},
-        {x: 290, y: 120, name: 'Jubilee Hills'}
+        'Gachibowli', 'Madhapur', 'Secunderabad', 
+        'Banjara Hills', 'Kavadiguda', 'Jubilee Hills',
+        'Kukatpally', 'Hitech City', 'Manikonda'
     ];
 
-    setInterval(() => {
+    const showToast = () => {
         const area = areas[Math.floor(Math.random() * areas.length)];
-        const ping = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        ping.setAttribute('cx', area.x);
-        ping.setAttribute('cy', area.y);
-        ping.setAttribute('r', '4');
-        ping.setAttribute('class', 'map-ping');
-        map.appendChild(ping);
-        
-        // Notification toast
         const toast = document.getElementById('map-toast');
+        
         if (toast) {
-            toast.textContent = `New pickup scheduled in ${area.name}!`;
-            toast.style.opacity = '1';
-            setTimeout(() => toast.style.opacity = '0', 2000);
+            toast.textContent = `New pickup in ${area}!`;
+            
+            // Randomly position around the center logo
+            const angle = Math.random() * Math.PI * 2;
+            const radius = 60 + Math.random() * 40;
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+            
+            toast.style.left = `calc(50% + ${x}px)`;
+            toast.style.top = `calc(50% + ${y}px)`;
+            toast.classList.add('visible');
+            
+            setTimeout(() => {
+                toast.classList.remove('visible');
+            }, 2500);
         }
+    };
 
-        setTimeout(() => ping.remove(), 2000);
-    }, 3000);
+    // Initial delay then repeat
+    setTimeout(showToast, 1000);
+    setInterval(showToast, 4500); // 1.5x faster feel with more frequent updates
 }
 
 /* 4. TRUST ORBS BACKGROUND */

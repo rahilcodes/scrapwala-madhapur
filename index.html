@@ -410,7 +410,7 @@
 <div class="trust-grid">
 <div class="reveal">
 <div class="trust-item">
-<div class="trust-item__icon"><img src="assets/images/scale.png" style="width:56px;height:56px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 4px 12px rgba(0,0,0,0.5)" alt="Digital Scale"></div>
+<div class="trust-item__icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M19 9l-7-7-7 7M21 8v13M3 8v13M5 21h14M12 12v9"/></svg></div>
 <div class="trust-item__text"><h4>Certified Digital Weighing</h4><p>Every gram counted on NABL-certified digital scales. You watch the weighing — nothing hidden, ever.</p></div>
 </div>
 <div class="trust-item">
@@ -491,26 +491,30 @@
   </div>
 </section>
 
-<!-- HYDERABAD PULSE MAP -->
-<section class="pulse-section" style="background:#0d0d0d; overflow:hidden;">
-  <div class="container">
-    <div class="pulse-map-container reveal">
-      <div style="position:relative;">
-        <div id="map-toast" style="position:absolute; top:20px; left:20px; background:var(--green-accent); color:var(--black); padding:10px 20px; border-radius:100px; font-weight:800; font-size:12px; opacity:0; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:10; pointer-events:none;">New pickup scheduled!</div>
-        <svg class="pulse-map-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <!-- Stylized Hyderabad Boundary -->
-          <path d="M150,120 L220,100 L300,110 L380,150 L420,220 L400,320 L350,400 L280,430 L180,410 L100,350 L80,250 L110,180 Z" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
-          <path d="M150,120 L220,100 L300,110 L380,150 L420,220 L400,320 L350,400 L280,430 L180,410 L100,350 L80,250 L110,180 Z" fill="none" stroke="var(--green-accent)" stroke-width="1" opacity="0.1" />
-          <circle cx="250" cy="260" r="4" fill="var(--green-accent)" opacity="0.5" />
-        </svg>
+<!-- JOIN THE MOVEMENT (SIMPLIFIED LIVE ACTIVITY) -->
+<section class="pulse-section" style="background:#0d0d0d; border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="container container--sm">
+    <div class="pulse-hub reveal">
+      <div class="pulse-hub__visual">
+        <div class="pulse-ring"></div>
+        <div class="pulse-logo">S.</div>
+        <div id="map-toast" class="live-toast">New pickup scheduled!</div>
       </div>
-      <div>
+      
+      <div class="pulse-hub__content">
         <div class="section-label">Live Activity</div>
-        <h2 style="color:white; font-family:var(--font-display); font-size:var(--text-4xl); margin-bottom:var(--space-6);">Join the movement.</h2>
-        <p style="color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:var(--space-8);">Every minute, families in Hyderabad are reclaiming their space and helping the environment. Our team is currently active in 32+ neighborhoods.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6);">
-          <div><div style="font-size:24px; font-weight:800; color:white;">1,240+</div><div style="font-size:11px; text-transform:uppercase; color:var(--green-accent);">Kg Collected Today</div></div>
-          <div><div style="font-size:24px; font-weight:800; color:white;">48</div><div style="font-size:11px; text-transform:uppercase; color:var(--green-accent);">Pickups Done Today</div></div>
+        <h2 class="pulse-hub__title">Join the movement.</h2>
+        <p class="pulse-hub__desc">Every minute, families in Hyderabad are reclaiming their space and helping the environment. Our team is currently active in 32+ neighborhoods.</p>
+        
+        <div class="pulse-stats">
+          <div class="pulse-stat">
+            <div class="pulse-stat__num">1,240+</div>
+            <div class="pulse-stat__label">Kg Collected Today</div>
+          </div>
+          <div class="pulse-stat">
+            <div class="pulse-stat__num">48</div>
+            <div class="pulse-stat__label">Pickups Done Today</div>
+          </div>
         </div>
       </div>
     </div>
