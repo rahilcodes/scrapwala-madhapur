@@ -126,7 +126,7 @@ function buildScripts(extras = []) {
 function buildSchema(name, desc) {
   return JSON.stringify({
     "@context":"https://schema.org","@type":"LocalBusiness","name":"Scrapwala Hyderabad","telephone":"+919392901664",
-    "address":{"@type":"PostalAddress","streetAddress":"1-4-27/71/2, Padmashali Colony, Kavadiguda","addressLocality":"Hyderabad","postalCode":"500080","addressCountry":"IN"},
+    "address":{"@type":"PostalAddress","streetAddress":"1_4_27/71/2, Padmashali Colony, Indira Nagar, Kavadiguda, Hyderabad, Telangana 500080","addressLocality":"Hyderabad","postalCode":"500080","addressCountry":"IN"},
     "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"400"},
     "description": desc
   });
