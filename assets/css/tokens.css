@@ -1,52 +1,60 @@
 /* ==========================================================================
-   TOKENS.CSS — Design System Tokens
+   TOKENS.CSS — Design System Tokens (Premium Home Service Redesign)
    Scrapwala Hyderabad
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  /* ---- Color Palette ---- */
-  --black:          #0A0A08;
-  --black-soft:     #141412;
-  --black-card:     #1A1917;
-  --white:          #FAFAF7;
-  --white-dim:      rgba(250, 250, 247, 0.92);
+  /* ---- Brand Colors ---- */
+  --cream:        #FAF7F2;
+  --cream-dark:   #F2EDE4;
+  --cream-border: #E8E2D9;
 
-  --green:          #1A6B3C;
-  --green-mid:      #2D9B5A;
-  --green-light:    #E8F5EE;
-  --green-glow:     rgba(45, 155, 90, 0.15);
-  --green-border:   rgba(45, 155, 90, 0.25);
-  --green-accent:   #6BD99A;
+  --green:        #1A5C3A;
+  --green-mid:    #22744A;
+  --green-light:  #EEF7F2;
+  --green-soft:   #D4EDE1;
+  --green-accent: #3DAA6A;
+  --green-hover:  #17503380;
 
-  --amber:          #D4860A;
-  --amber-light:    #FEF3DC;
+  --gold:         #B8860B;
+  --gold-light:   #FDF5E2;
+  --gold-accent:  #D4A017;
+  --gold-soft:    #F5E9C8;
 
-  --surface:        #F2F1EC;
-  --surface-dark:   #EEECEA;
-  --border:         #E0DED6;
-  --border-dark:    rgba(255, 255, 255, 0.08);
+  --charcoal:     #1C1C1A;
+  --text-dark:    #2C2C2A;
+  --text-mid:     #5C5C58;
+  --text-light:   #8C8C88;
+  --text-muted:   #ADADAA;
 
-  --muted:          #6B6B62;
-  --muted-light:    #9B9B92;
+  --white:        #FFFFFF;
+  --black:        #0A0A08;
 
-  --star:           #F5C842;
-  --wa-green:       #25D366;
-  --wa-green-dark:  #1DA851;
+  --star:         #F5B800;
+  --wa-green:     #25D366;
+  --wa-green-dark:#1DA851;
+
+  --amber:        #C97A00;
+  --amber-light:  #FDF0DC;
 
   /* ---- Typography ---- */
-  --font-display:   'Outfit', sans-serif;
-  --font-body:      'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+  --font-body:    'Lora', serif;
+  --font-ui:      'Poppins', sans-serif; /* alias — always Poppins */
 
-  --text-xs:   11px;
-  --text-sm:   13px;
-  --text-base: 15px;
-  --text-md:   17px;
-  --text-lg:   20px;
-  --text-xl:   24px;
-  --text-2xl:  32px;
-  --text-3xl:  clamp(28px, 3.5vw, 42px);
-  --text-4xl:  clamp(32px, 4vw, 52px);
-  --text-hero: clamp(42px, 7vw, 88px);
+  --text-xs:    11px;
+  --text-sm:    13px;
+  --text-base:  15px;
+  --text-md:    17px;
+  --text-lg:    19px;
+  --text-xl:    22px;
+  --text-2xl:   28px;
+  --text-3xl:   clamp(22px, 2.6vw, 34px);
+  --text-4xl:   clamp(26px, 3.2vw, 42px);
+  --text-5xl:   clamp(30px, 4vw, 52px);
+  --text-hero:  clamp(36px, 5vw, 62px);
 
   --weight-light:   300;
   --weight-regular: 400;
@@ -55,17 +63,10 @@
   --weight-bold:    700;
   --weight-black:   800;
 
-  --leading-tight:  1.0;
-  --leading-snug:   1.2;
-  --leading-normal: 1.5;
-  --leading-relaxed:1.7;
-
-  --tracking-tight: -2px;
-  --tracking-snug:  -1.5px;
-  --tracking-normal:-0.5px;
-  --tracking-wide:  0.5px;
-  --tracking-wider: 1.5px;
-  --tracking-widest:2px;
+  --leading-tight:   1.1;
+  --leading-snug:    1.3;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.85;
 
   /* ---- Spacing ---- */
   --space-1:  4px;
@@ -83,27 +84,30 @@
   --space-32: 128px;
 
   /* ---- Radii ---- */
-  --radius-sm:  6px;
-  --radius-md:  10px;
-  --radius-lg:  16px;
-  --radius-xl:  20px;
-  --radius-2xl: 24px;
-  --radius-pill:100px;
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-pill: 100px;
 
   /* ---- Shadows ---- */
-  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md:  0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
-  --shadow-wa:  0 4px 20px rgba(37, 211, 102, 0.4);
+  --shadow-xs:  0 1px 4px rgba(28, 28, 26, 0.06);
+  --shadow-sm:  0 2px 10px rgba(28, 28, 26, 0.07);
+  --shadow-md:  0 6px 24px rgba(28, 28, 26, 0.09);
+  --shadow-lg:  0 16px 48px rgba(28, 28, 26, 0.10);
+  --shadow-xl:  0 28px 72px rgba(28, 28, 26, 0.12);
+  --shadow-green: 0 8px 32px rgba(26, 92, 58, 0.20);
+  --shadow-wa:   0 4px 20px rgba(37, 211, 102, 0.35);
 
   /* ---- Transitions ---- */
-  --dur-fast:   0.15s;
-  --dur-base:   0.25s;
-  --dur-slow:   0.4s;
-  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out:cubic-bezier(0.45, 0, 0.55, 1);
+  --dur-fast:  0.18s;
+  --dur-base:  0.30s;
+  --dur-slow:  0.50s;
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* ---- Z-index Layer ---- */
+  /* ---- Z-index ---- */
   --z-base:   1;
   --z-card:   10;
   --z-sticky: 50;
@@ -113,6 +117,6 @@
 
   /* ---- Layout ---- */
   --max-width: 1200px;
-  --gutter:    5vw;
-  --section-y: 100px;
+  --gutter:    clamp(20px, 5vw, 80px);
+  --section-y: clamp(72px, 8vw, 120px);
 }

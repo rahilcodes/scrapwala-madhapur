@@ -12,7 +12,7 @@ const AREAS = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'areas.jso
 
 const HEAD_COMMON = `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/components.css">
@@ -93,7 +93,7 @@ function buildFooter() {
   <div class="footer__logo">Scrapwala<span>.</span></div>
   <p class="footer__tagline">Hyderabad's most trusted scrap collection service. Turning waste into wealth, one pickup at a time.</p>
   <div class="footer__contact-items">
-    <a href="tel:+919392901664" class="footer__contact-link">${PHONE_ICON} +91 93929 01664</a>
+    <a href="tel:+919949350392" class="footer__contact-link">${PHONE_ICON} +91 99493 50392</a>
     <a href="mailto:scrapwala95@gmail.com" class="footer__contact-link"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> scrapwala95@gmail.com</a>
   </div>
 </div>
@@ -111,11 +111,11 @@ function buildFooter() {
       <button class="wa-widget__close" id="wa-close" aria-label="Close chat"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </div>
     <div class="wa-widget__body"><div class="wa-widget__msg">Hi there! 👋 Need a free scrap pickup today? We're online and ready to help.<span class="wa-widget__msg-time" id="wa-time">Now</span></div></div>
-    <div class="wa-widget__footer"><a href="https://wa.me/919392901664?text=Hi%20Scrapwala%2C%20I%20want%20to%20schedule%20a%20pickup" target="_blank" class="wa-widget__btn">${WA_SVG} Start Chat</a></div>
+    <div class="wa-widget__footer"><a href="https://wa.me/919949350392?text=Hi%20Scrapwala%2C%20I%20want%20to%20schedule%20a%20pickup" target="_blank" class="wa-widget__btn">${WA_SVG} Start Chat</a></div>
   </div>
   <button class="wa-widget__fab" id="wa-fab" aria-label="Open WhatsApp chat">${WA_SVG}<span class="wa-widget__badge" id="wa-badge">1</span></button>
 </div>
-<div class="sticky-cta"><a href="tel:+919392901664" class="btn btn--dark" style="flex:1;padding:12px">${PHONE_ICON} Call Now</a><a href="https://wa.me/919392901664" class="btn btn--wa" target="_blank" rel="noopener" style="flex:1;padding:12px">${WA_SVG} WhatsApp</a></div>`;
+<div class="sticky-cta"><a href="tel:+919949350392" class="btn btn--dark" style="flex:1;padding:12px">${PHONE_ICON} Call Now</a><a href="https://wa.me/919949350392" class="btn btn--wa" target="_blank" rel="noopener" style="flex:1;padding:12px">${WA_SVG} WhatsApp</a></div>`;
 }
 
 function buildScripts(extras = []) {
@@ -125,8 +125,8 @@ function buildScripts(extras = []) {
 
 function buildSchema(name, desc) {
   return JSON.stringify({
-    "@context":"https://schema.org","@type":"LocalBusiness","name":"Scrapwala Hyderabad","telephone":"+919392901664",
-    "address":{"@type":"PostalAddress","streetAddress":"1_4_27/71/2, Padmashali Colony, Indira Nagar, Kavadiguda, Hyderabad, Telangana 500080","addressLocality":"Hyderabad","postalCode":"500080","addressCountry":"IN"},
+    "@context":"https://schema.org","@type":"LocalBusiness","name":"Scrapwala Hyderabad","telephone":"+919949350392",
+    "address":{"@type":"PostalAddress","streetAddress":"Smart Backside, Plot 2, RBI Colony, Phase 2, Kavuri Hills, Madhapur, Hyderabad, Telangana 500081","addressLocality":"Hyderabad","postalCode":"500080","addressCountry":"IN"},
     "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"400"},
     "description": desc
   });
@@ -178,8 +178,8 @@ ${NAV}
 <h1>${svc.h1}</h1>
 <p class="page-hero__sub">${svc.tagline}</p>
 <div class="page-hero__actions">
-<a href="tel:+919392901664" class="btn btn--primary btn--lg">${PHONE_ICON} Call for Free Pickup</a>
-<a href="https://wa.me/919392901664?text=Hi%20Scrapwala%2C%20I%20want%20to%20sell%20${encodeURIComponent(svc.shortTitle)}%20scrap" class="btn btn--outline" target="_blank" rel="noopener">WhatsApp Us</a>
+<a href="tel:+919949350392" class="btn btn--primary btn--lg">${PHONE_ICON} Call for Free Pickup</a>
+<a href="https://wa.me/919949350392?text=Hi%20Scrapwala%2C%20I%20want%20to%20sell%20${encodeURIComponent(svc.shortTitle)}%20scrap" class="btn btn--outline" target="_blank" rel="noopener">WhatsApp Us</a>
 </div>
 </div>
 </div>
@@ -319,8 +319,8 @@ ${NAV}
 <h1>Scrap Buyers in ${area.name}, Hyderabad</h1>
 <p class="page-hero__sub">Looking to sell scrap in ${area.name}? Scrapwala offers free doorstep pickup, certified digital weighing, and instant payment by cash or UPI. We are ${area.district}'s most trusted scrap collection service.</p>
 <div class="page-hero__actions">
-<a href="tel:+919392901664" class="btn btn--primary btn--lg">${PHONE_ICON} Call for Free Pickup</a>
-<a href="https://wa.me/919392901664?text=Hi%20Scrapwala%2C%20I%20need%20scrap%20pickup%20in%20${encodeURIComponent(area.name)}" class="btn btn--outline" target="_blank" rel="noopener">WhatsApp Us</a>
+<a href="tel:+919949350392" class="btn btn--primary btn--lg">${PHONE_ICON} Call for Free Pickup</a>
+<a href="https://wa.me/919949350392?text=Hi%20Scrapwala%2C%20I%20need%20scrap%20pickup%20in%20${encodeURIComponent(area.name)}" class="btn btn--outline" target="_blank" rel="noopener">WhatsApp Us</a>
 </div>
 </div>
 </div>
@@ -350,7 +350,7 @@ ${NAV}
 <div class="booking-grid">
 <div class="booking-left reveal">
 <div class="section-label section-label--light">Book a pickup</div>
-<h2>Free pickup in ${area.name}.<br>Today.</h2>
+<h2>Free pickup in ${area.name}. Today.</h2>
 <p class="booking-left__sub">Our team covers ${area.name} and all of ${area.district}. No charges, no minimums. Just your scrap converted to cash.</p>
 <div class="booking-perks">
 <div class="booking-perk"><div class="booking-perk__check">${CHECK_ICON}</div>Same-day pickup in ${area.name}</div>

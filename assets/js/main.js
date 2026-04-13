@@ -1,7 +1,6 @@
 /**
  * main.js — Application Entry Point
- * Scrapwala Hyderabad
- * Initializes all modules after DOM is ready
+ * Scrapwala Hyderabad — Premium Home Service Redesign
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     hours = hours % 12;
     hours = hours ? hours : 12;
     const minutes = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
-    priceTimestamp.textContent = `Prices updated: Today, ${hours}:${minutes} ${ampm}`;
+    priceTimestamp.textContent = `Updated today, ${hours}:${minutes} ${ampm}`;
   }
 
-  // ---- Interactive WA Widget ----
+  // ---- WhatsApp Widget ----
   const waFab = document.getElementById('wa-fab');
   const waPopup = document.getElementById('wa-popup');
   const waClose = document.getElementById('wa-close');
@@ -35,34 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const now = new Date();
       waTime.textContent = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
     }
-    
+
+    // Auto-show popup after 8 seconds
+    setTimeout(() => {
+      if (!waPopup.classList.contains('show')) {
+        waPopup.classList.add('show');
+      }
+    }, 8000);
+
     waFab.addEventListener('click', () => {
-      waPopup.classList.add('show');
+      waPopup.classList.toggle('show');
       if (waBadge) waBadge.style.opacity = '0';
     });
-    
+
     if (waClose) {
-      waClose.addEventListener('click', () => {
+      waClose.addEventListener('click', (e) => {
+        e.stopPropagation();
         waPopup.classList.remove('show');
       });
     }
   }
 
-  // ---- WhatsApp area-page pre-fill ----
-  // If page has data-area attribute, pre-fill area in booking form
+  // ---- Area page pre-fill ----
   const bodyArea = document.body.dataset.area;
   if (bodyArea) {
     const areaInput = document.getElementById('form-area');
     if (areaInput) areaInput.value = bodyArea;
   }
-
-  // ---- Area pill links (make them navigate) ----
-  document.querySelectorAll('.area-pill[data-href]').forEach(pill => {
-    pill.addEventListener('click', () => {
-      window.location.href = pill.dataset.href;
-    });
-    pill.style.cursor = 'pointer';
-  });
 
   // ---- Smooth scroll for anchor links ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -70,67 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const navHeight = document.getElementById('main-nav')?.offsetHeight || 66;
+        const navHeight = document.getElementById('main-nav')?.offsetHeight || 68;
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
-
-  // ---- Copy phone on click ----
-  document.querySelectorAll('[data-copy-phone]').forEach(el => {
-    el.addEventListener('click', () => {
-      navigator.clipboard.writeText('+919392901664').then(() => {
-        const original = el.textContent;
-        el.textContent = 'Copied!';
-        setTimeout(() => { el.textContent = original; }, 1500);
-      }).catch(() => {});
-    });
-  });
-  // ---- Background Audio Logic ----
-  const AudioHelper = (() => {
-    const audio = document.getElementById('bg-audio');
-    const toggleBtn = document.getElementById('audio-toggle');
-    if (!audio || !toggleBtn) return;
-
-    const iconMute = toggleBtn.querySelector('.icon-mute');
-    const iconUnmute = toggleBtn.querySelector('.icon-unmute');
-    
-    // Check user preference
-    const isMuted = localStorage.getItem('scrapwala_audio_muted') === 'true';
-    if (isMuted) {
-      audio.muted = true;
-      iconMute.style.display = 'none';
-      iconUnmute.style.display = 'block';
-    } else {
-      audio.volume = 0.4; // gentle volume
-    }
-
-    // Play on first interaction if not muted
-    const tryPlay = () => {
-      if (!audio.muted) {
-        audio.play().catch(() => {});
-      }
-      ['click', 'scroll', 'touchstart'].forEach(evt => document.removeEventListener(evt, tryPlay));
-    };
-    ['click', 'scroll', 'touchstart'].forEach(evt => document.addEventListener(evt, tryPlay, { once: true, passive: true }));
-
-    // Toggle button logic
-    toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (audio.muted || audio.paused) {
-        audio.muted = false;
-        audio.play().catch(() => {});
-        iconUnmute.style.display = 'none';
-        iconMute.style.display = 'block';
-        localStorage.setItem('scrapwala_audio_muted', 'false');
-      } else {
-        audio.muted = true;
-        audio.pause();
-        iconMute.style.display = 'none';
-        iconUnmute.style.display = 'block';
-        localStorage.setItem('scrapwala_audio_muted', 'true');
-      }
-    });
-  })();
 });

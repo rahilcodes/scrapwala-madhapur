@@ -1,98 +1,71 @@
 /**
- * nav.js — Navigation Module
- * Scrapwala Hyderabad
- * Handles: mobile menu toggle, scroll behavior, active link highlighting
+ * nav.js — Navigation interactions
+ * Scrapwala Hyderabad — Premium Home Service Redesign
  */
 
 const Nav = (() => {
-  let navEl, hamburger, mobileMenu, isOpen;
-
   function init() {
-    navEl = document.getElementById('main-nav');
-    hamburger = document.getElementById('nav-hamburger');
-    mobileMenu = document.getElementById('nav-mobile');
-    isOpen = false;
+    const nav = document.getElementById('main-nav');
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileNav = document.getElementById('nav-mobile');
 
-    if (!navEl) return;
-
-    // Scroll behavior — add shadow class when scrolled
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // Hamburger toggle
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', toggleMenu);
+    // Scroll shadow
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+      }, { passive: true });
     }
 
-    // Close mobile menu on link click
-    if (mobileMenu) {
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        if (!link.classList.contains('nav__mobile-trigger')) {
-          link.addEventListener('click', closeMenu);
-        }
+    // Hamburger toggle
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.querySelectorAll('span').forEach((s, i) => {
+          if (isOpen) {
+            if (i === 0) s.style.transform = 'translateY(7px) rotate(45deg)';
+            if (i === 1) s.style.opacity = '0';
+            if (i === 2) s.style.transform = 'translateY(-7px) rotate(-45deg)';
+          } else {
+            s.style.transform = '';
+            s.style.opacity = '';
+          }
+        });
       });
 
-      // Mobile Accordion Toggles
-      mobileMenu.querySelectorAll('.nav__mobile-trigger').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          const item = trigger.closest('.nav__mobile-item');
-          if (item) item.classList.toggle('open');
+      // Close when clicking a link
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+          hamburger.querySelectorAll('span').forEach(s => {
+            s.style.transform = '';
+            s.style.opacity = '';
+          });
         });
       });
     }
 
-    // Mark active nav link
-    markActiveLink();
-
-    // Close menu on ESC
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && isOpen) closeMenu();
+    // Mobile dropdowns
+    document.querySelectorAll('.nav__mobile-trigger').forEach(trigger => {
+      trigger.addEventListener('click', e => {
+        e.preventDefault();
+        const dropdown = trigger.nextElementSibling;
+        if (dropdown) dropdown.classList.toggle('open');
+      });
     });
-  }
 
-  function onScroll() {
-    if (!navEl) return;
-    if (window.scrollY > 20) {
-      navEl.classList.add('scrolled');
-    } else {
-      navEl.classList.remove('scrolled');
-    }
-  }
-
-  function toggleMenu() {
-    isOpen ? closeMenu() : openMenu();
-  }
-
-  function openMenu() {
-    isOpen = true;
-    hamburger.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    isOpen = false;
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function markActiveLink() {
-    const currentPath = window.location.pathname;
-    const links = document.querySelectorAll('.nav__links a, .nav__mobile a');
-    links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      // Exact match for home, prefix match for sub-pages
-      if (href === '/' || href === '/index.html') {
-        if (currentPath === '/' || currentPath === '/index.html') {
-          link.classList.add('active');
+    // Close mobile nav on outside click
+    document.addEventListener('click', e => {
+      if (mobileNav && mobileNav.classList.contains('open')) {
+        if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+          mobileNav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+          hamburger.querySelectorAll('span').forEach(s => {
+            s.style.transform = '';
+            s.style.opacity = '';
+          });
         }
-      } else if (currentPath.includes(href) && href !== '/') {
-        link.classList.add('active');
       }
     });
   }

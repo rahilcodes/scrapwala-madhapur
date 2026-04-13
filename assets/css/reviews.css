@@ -1,103 +1,46 @@
-/* ========== GOOGLE REVIEWS WIDGET ========== */
-.google-reviews {
-  padding: var(--space-20) 0;
-  background: var(--black);
-}
+/* ==========================================================================
+   REVIEWS.CSS — Google Reviews Component
+   Scrapwala Hyderabad — Premium Dark Theme Override (if needed)
+   ========================================================================== */
 
-.google-reviews-header {
+/* All review styles are now in components.css — this file is a pass-through */
+
+/* ===== ECO STATS (Calculator section) ===== */
+.eco-hero-stats {
   display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin-bottom: var(--space-10);
-  justify-content: center;
-}
-
-.google-badge {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  background: rgba(255,255,255,0.05);
-  padding: var(--space-3) var(--space-6);
-  border-radius: 100px;
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--white);
-  font-weight: var(--weight-bold);
-  font-size: var(--text-lg);
-}
-
-.google-badge svg.g-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.google-review-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-6);
-  max-width: var(--max-width);
-  margin: 0 auto;
+  margin-bottom: var(--space-6);
+  padding: var(--space-5);
+  background: var(--green-light);
+  border: 1px solid var(--green-soft);
+  border-radius: var(--radius-lg);
 }
-
-.g-review-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
+.eco-stat {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  backdrop-filter: blur(10px);
+  align-items: center;
+  flex: 1;
+  gap: 4px;
 }
-
-.g-review-header {
+.eco-stat__icon {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
 }
-
-.g-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--green-mid);
-  display: grid;
-  place-items: center;
-  color: var(--white);
+.eco-stat__val {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
   font-weight: var(--weight-bold);
-  font-size: var(--text-lg);
+  color: var(--green);
 }
-
-.g-author-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.g-author-name {
-  color: var(--white);
-  font-weight: var(--weight-bold);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.g-date {
-  color: rgba(255,255,255,0.4);
-  font-size: var(--text-sm);
-}
-
-.g-stars {
-  color: #FBBC04;
-  display: flex;
-  gap: 2px;
-}
-
-.g-stars svg {
-  width: 16px;
-  height: 16px;
-}
-
-.g-text {
-  color: rgba(255,255,255,0.8);
-  line-height: var(--leading-relaxed);
-  font-size: var(--text-base);
+.eco-stat__label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: var(--weight-semi);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-mid);
+  text-align: center;
 }
